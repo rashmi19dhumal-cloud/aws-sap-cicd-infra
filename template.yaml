@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: '2010-09-09'
-Description: Simple EC2 deployment with Security Group
+Description: Simple EC2 deployment with SG
 
 Resources:
   MyEC2Instance:
