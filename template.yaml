@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: '2010-09-09'
-Description: Simple EC2 deployment with   multiple Security Groups
+Description: Simple EC2 deployment with multiple Security Groups
 
 Resources:
   MyEC2Instance:
@@ -9,7 +9,7 @@ Resources:
       ImageId: ami-02a53b0d62d37a757   # Change based on region
       SecurityGroupIds:
         - !Ref InstanceSG
-        
+        - !Ref SSHSecurityGroup
 
   InstanceSG:
     Type: AWS::EC2::SecurityGroup
@@ -21,3 +21,12 @@ Resources:
           ToPort: 80
           CidrIp: 0.0.0.0/0
 
+  SSHSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Allow SSH
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 0.0.0.0/0
