@@ -5,7 +5,7 @@ Resources:
   MyEC2Instance:
     Type: AWS::EC2::Instance
     Properties:
-      InstanceType: t2.micro
+      InstanceType: t3.micro
       ImageId: ami-02a53b0d62d37a757   # Change based on region
       SecurityGroupIds:
         - !Ref InstanceSG
